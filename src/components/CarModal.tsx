@@ -21,15 +21,6 @@ function CarModal(props: any) {
 
     const shouldHideButtons = images.length <= 1;
 
-    function formatDate(dateString: string) {
-        const options: Intl.DateTimeFormatOptions = {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-        };
-        return new Date(dateString).toLocaleDateString(undefined, options);
-    }
-
     return (
         <div>
             <div
