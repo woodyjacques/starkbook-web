@@ -1,5 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Header from "../components/header";
 import Footer from "../components/Footer";
 
@@ -8,9 +7,9 @@ function EmailPassword() {
 
   const [email, setEmail] = useState("");
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleSubmit = async (event: FormEvent) => {
+  const handleSubmit = async () => {
     // const emailData = await handleSubmitEmail(event, email, setEmail);
 
     // if (emailData) {

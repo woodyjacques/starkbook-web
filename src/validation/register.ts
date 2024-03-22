@@ -2,7 +2,7 @@ import { FormEvent } from "react";
 import { mostrarMensaje } from "../components/toast";
 import axios from "axios";
 
-const api = "https://backend-like.vercel.app";
+const api = "https://stark-backend-pink.vercel.app";
 // const api = import.meta.env.VITE_APP_API_URL;
 
 export const handleSubmitUsers = async (
@@ -43,9 +43,9 @@ export const handleSubmitUsers = async (
   }
 
   try {
-    // const responseRegister = await axios.post(`${api}/auth/register`, { name, email, password, isVerified });
-    // const mensaje = responseRegister.data.message;
-    // mostrarMensaje(mensaje, MensajeActUsuario);
+    const responseRegister = await axios.post(`${api}/auth/register`, { name, email, password, isVerified });
+    const mensaje = responseRegister.data.message;
+    mostrarMensaje(mensaje, MensajeActUsuario);
     resetForm();
     return true;
   } catch (error: any) {

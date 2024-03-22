@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/header";
 
@@ -21,7 +21,7 @@ function Sesion() {
         setShowPassword(!showPassword);
     };
 
-    const handleSubmitSesion = async (event: FormEvent) => { };
+    const handleSubmitSesion = async () => { };
 
     return (
         <div className="flex flex-col min-h-screen bg-gray-900">
