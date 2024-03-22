@@ -1,11 +1,21 @@
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/header";
+import { handleSubmitUserSesion } from "../validation/sesion";
+import { useNavigate } from "react-router-dom";
+
+export interface UserData {
+    name: string;
+    email: string;
+    telefone: string;
+}
 
 function Sesion() {
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleResize = () => {
@@ -21,7 +31,28 @@ function Sesion() {
         setShowPassword(!showPassword);
     };
 
-    const handleSubmitSesion = async () => { };
+    const handleSubmitSesion = async (event: FormEvent) => {
+        const sesionData = await handleSubmitUserSesion(event, email, password, setEmail, setPassword);
+
+        if (sesionData) {
+            const { token, name, email, telefone } = sesionData;
+
+            localStorage.setItem("ACCESS_TOKEN", token);
+
+            const sessionData: UserData = {
+                name, email, telefone
+            };
+
+            localStorage.setItem(
+                "USER_SESSION",
+                JSON.stringify(sessionData)
+            );
+
+            setTimeout(() => {
+                navigate("/");
+            }, 3000);
+        }
+    };
 
     return (
         <div className="flex flex-col min-h-screen bg-gray-900">
@@ -39,7 +70,7 @@ function Sesion() {
                             <form onSubmit={handleSubmitSesion} className={`mx-auto flex flex-col pb-6 text-center bg-gray-900 rounded-3xl ${windowWidth < 768 ? 'w-full' : ''}`}>
 
                                 <h3 className="mb-3 text-4xl font-extrabold text-white">Sesión</h3>
-                                
+
                                 <p className="mb-4 text-white">Ingrese tu correo y contraseña</p>
                                 <a
                                     className="flex items-center justify-center w-full py-4 mb-6 text-sm font-medium transition duration-300 rounded text-grey-900 bg-white hover:bg-grey-400 focus:ring-4 focus:ring-grey-300"
@@ -67,6 +98,8 @@ function Sesion() {
                                 <input
                                     id="email"
                                     type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     placeholder="Ingresa tu correo"
                                     className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-grey-400 mb-7 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded"
                                 />
