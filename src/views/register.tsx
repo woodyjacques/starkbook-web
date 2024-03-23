@@ -55,7 +55,7 @@ function Register() {
                 <p className="mb-4 text-white">Ingrese tus datos</p>
                 <a
                   className="flex items-center justify-center w-full py-4 mb-6 text-sm font-medium transition duration-300 rounded text-gray-900 bg-white hover:bg-grey-400 focus:ring-4 focus:ring-grey-300"
-                  href="https://vercel.com/woodyjacques/stark-backend/google"
+                  href="https://stark-backend-pink.vercel.app/google"
                 >
                   <img className="h-5 mr-2" src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/motion-tailwind/img/logos/logo-google.png" alt="" />
                   Registrate con google
