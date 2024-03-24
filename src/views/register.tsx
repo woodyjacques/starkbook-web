@@ -18,6 +18,19 @@ function Register() {
 
   const navigate = useNavigate();
 
+  const token = localStorage.getItem("ACCESS_TOKEN");
+
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token, navigate]);
+
+  if (token) {
+    return null;
+  }
+
+
   const handleSubmitRegister = async (event: FormEvent) => {
     const registrationSuccessful = await handleSubmitUsers(event, name, email, password, isVerified, setName, setEmail, setPassword, setisVerified);
 

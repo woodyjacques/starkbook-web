@@ -10,6 +10,7 @@ export interface UserData {
 }
 
 function Sesion() {
+    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
