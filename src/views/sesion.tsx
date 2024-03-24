@@ -1,13 +1,12 @@
 import { FormEvent, useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Header from "../components/header";
-import { handleSubmitUserSesion } from "../validation/sesion";
+import { handleSubmitUserSesion, handleSubmitVerifi } from "../validation/sesion";
 import { useNavigate } from "react-router-dom";
 
 export interface UserData {
     name: string;
     email: string;
-    telefone: string;
 }
 
 function Sesion() {
@@ -16,6 +15,36 @@ function Sesion() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const tokens = urlParams.get("token");
+
+    async function verificarTokens(tokens: any) {
+        if (tokens) {
+            const tokenData = await handleSubmitVerifi(tokens);
+
+            if (tokenData) {
+                const { token, name, email } = tokenData;
+
+                localStorage.setItem("ACCESS_TOKEN", token);
+
+                const sessionData: UserData = {
+                    name, email
+                };
+
+                localStorage.setItem(
+                    "USER_SESSION",
+                    JSON.stringify(sessionData)
+                );
+
+                setTimeout(() => {
+                    navigate("/liketechnology-articulos");
+                }, 1000);
+            }
+        }
+    }
+
+    verificarTokens(tokens);
 
     useEffect(() => {
         const handleResize = () => {
@@ -35,12 +64,12 @@ function Sesion() {
         const sesionData = await handleSubmitUserSesion(event, email, password, setEmail, setPassword);
 
         if (sesionData) {
-            const { token, name, email, telefone } = sesionData;
+            const { token, name, email } = sesionData;
 
             localStorage.setItem("ACCESS_TOKEN", token);
 
             const sessionData: UserData = {
-                name, email, telefone
+                name, email
             };
 
             localStorage.setItem(
