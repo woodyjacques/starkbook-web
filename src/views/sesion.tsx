@@ -10,12 +10,24 @@ export interface UserData {
 }
 
 function Sesion() {
-    
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+
+    const token = localStorage.getItem("ACCESS_TOKEN");
+
+    useEffect(() => {
+        if (token) {
+            navigate("/");
+        }
+    }, [token, navigate]);
+
+    if (token) {
+        return null;
+    }
 
     const urlParams = new URLSearchParams(window.location.search);
     const tokens = urlParams.get("token");

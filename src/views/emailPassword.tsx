@@ -1,22 +1,23 @@
-import { useEffect, useState } from "react";
 import Header from "../components/header";
 import Footer from "../components/Footer";
-
+import { useNavigate } from "react-router-dom";
+import { handleSubmitEmail } from "../validation/register";
+import { FormEvent, useEffect, useState } from "react";
 
 function EmailPassword() {
 
   const [email, setEmail] = useState("");
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  const handleSubmit = async () => {
-    // const emailData = await handleSubmitEmail(event, email, setEmail);
+  const handleSubmit = async (event: FormEvent) => {
+    const emailData = await handleSubmitEmail(event, email, setEmail);
 
-    // if (emailData) {
-    //   setTimeout(() => {
-    //     navigate("/liketechnology-emailVerifi");
-    //   }, 3000);
-    // }
+    if (emailData) {
+      setTimeout(() => {
+        navigate("/starkbook-emailverifi");
+      }, 3000);
+    }
   };
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

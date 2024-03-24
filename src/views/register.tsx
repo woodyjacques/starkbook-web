@@ -30,7 +30,6 @@ function Register() {
     return null;
   }
 
-
   const handleSubmitRegister = async (event: FormEvent) => {
     const registrationSuccessful = await handleSubmitUsers(event, name, email, password, isVerified, setName, setEmail, setPassword, setisVerified);
 
