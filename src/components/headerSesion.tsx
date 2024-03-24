@@ -11,7 +11,7 @@ function Header() {
   const logOut = () => {
     localStorage.removeItem("ACCESS_TOKEN");
     localStorage.removeItem("USER_SESSION");
-    navigate("/");
+    navigate("/starkbook-sesion");
   };
 
   const showModal = () => {
