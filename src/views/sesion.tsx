@@ -38,7 +38,7 @@ function Sesion() {
                 );
 
                 setTimeout(() => {
-                    navigate("/liketechnology-articulos");
+                    navigate("/");
                 }, 1000);
             }
         }
