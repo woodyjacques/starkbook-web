@@ -22,7 +22,7 @@ function Header() {
     <div>
          <nav className="fixed w-full z-20 top-0 left-0 border-b border-gray-200 border-gray-600  bg-gray-900">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
+                <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src="https://png.pngtree.com/png-clipart/20230805/original/pngtree-book-book-cartoon-illustration-png-image_9418601.png" className="h-8" alt="Flowbite Logo" />
                     <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">StarkBook</span>
                 </a>
