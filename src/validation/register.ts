@@ -32,7 +32,7 @@ export const handleSubmitUsers = async (
     return false;
   }
 
-  if (telefono) {
+  if (telefono == "") {
     mostrarMensaje("Ingrese su teléfono", MensajeErrUsuario);
     return false;
   }
