@@ -138,10 +138,6 @@ function CardsBook() {
           books.map((book, index) => (
             <div
               key={index}
-              onClick={() => {
-                toggleModal();
-                obtener(book);
-              }}
               className=" hover:bg-gray-700 w-full max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 h-full"
             >
               <div>
@@ -173,7 +169,7 @@ function CardsBook() {
                     </div>
                   ) : (
                     <div
-                      className="cursor-pointer text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-green-700 focus:ring-green-800"
+                      className="cursor-pointer text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-green-800"
                     >
                       Ver
                     </div>
