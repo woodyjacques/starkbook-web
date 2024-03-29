@@ -9,10 +9,12 @@ export const handleSubmitUsers = async (
   event: FormEvent,
   name: string,
   email: string,
+  telefono: string,
   password: string,
   isVerified: boolean,
   setName: React.Dispatch<React.SetStateAction<string>>,
   setEmail: React.Dispatch<React.SetStateAction<string>>,
+  setTelefono: React.Dispatch<React.SetStateAction<string>>,
   setPassword: React.Dispatch<React.SetStateAction<string>>,
   setisVerify: React.Dispatch<React.SetStateAction<boolean>>
 ): Promise<boolean> => {
@@ -30,6 +32,11 @@ export const handleSubmitUsers = async (
     return false;
   }
 
+  if (telefono) {
+    mostrarMensaje("Ingrese su teléfono", MensajeErrUsuario);
+    return false;
+  }
+
   if (password === "") {
     mostrarMensaje("Ingrese su password", MensajeErrUsuario);
     return false;
@@ -38,12 +45,13 @@ export const handleSubmitUsers = async (
   function resetForm() {
     setName("");
     setEmail("");
+    setTelefono("");
     setPassword("");
     setisVerify(false);
   }
 
   try {
-    const responseRegister = await axios.post(`${api}/auth/register`, { name, email, password, isVerified });
+    const responseRegister = await axios.post(`${api}/auth/register`, { name, email, telefono, password, isVerified });
     const mensaje = responseRegister.data.message;
     mostrarMensaje(mensaje, MensajeActUsuario);
     resetForm();

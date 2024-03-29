@@ -7,6 +7,7 @@ import { handleSubmitUsers } from "../validation/register";
 function Register() {
 
   const [name, setName] = useState("");
+  const [telefono, setTelefono] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isVerified, setisVerified] = useState(false);
@@ -31,7 +32,7 @@ function Register() {
   }
 
   const handleSubmitRegister = async (event: FormEvent) => {
-    const registrationSuccessful = await handleSubmitUsers(event, name, email, password, isVerified, setName, setEmail, setPassword, setisVerified);
+    const registrationSuccessful = await handleSubmitUsers(event, name, email,telefono, password, isVerified, setName, setEmail, setTelefono, setPassword, setisVerified);
 
     if (registrationSuccessful) {
       setTimeout(() => {
@@ -105,6 +106,17 @@ function Register() {
                   placeholder="Ingresa tu correo"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-grey-400 mb-7 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded"
+                />
+                <label className="mb-2 text-sm text-start text-white">
+                  Teléfono*
+                </label>
+                <input
+                  id="telefono"
+                  type="text"
+                  placeholder="Ingresa tu teléfono"
+                  value={telefono}
+                  onChange={(e) => setTelefono(e.target.value)}
                   className="flex items-center w-full px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-grey-400 mb-7 placeholder:text-grey-700 bg-grey-200 text-dark-grey-900 rounded"
                 />
                 <label className="mb-2 text-sm text-start text-white">

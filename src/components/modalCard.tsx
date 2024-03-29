@@ -10,7 +10,7 @@ export function ModalCard({ isOpen, toggleModal, set }: Forms) {
     if (!isOpen) {
         return null;
     }
-
+    
     return (
         <div
             id="staticModal"

@@ -36,15 +36,10 @@ function CardsBook() {
       categories: string;
       description: string;
       price: number;
-      linkBuys: string;
-      linkRead: string;
-      linkListen: string;
-      archives: [
-        {
-          id: number;
-          filename: string;
-        }
-      ];
+      linkCompra: string;
+      linkLeer: string;
+      linkEscuchar: string;
+      linkImagen: string;
     }[]
   >([]);
 
@@ -52,8 +47,7 @@ function CardsBook() {
     obtenerLibros()
       .then((data) => {
         const filteredBooks = data.map((book: any) => ({
-          ...book,
-          archives: book.archives || []
+          ...book
         })).filter((book: any) =>
           book.categories.includes(selectedCategory) &&
           book.name.toLowerCase().includes(filter.toLowerCase())
@@ -149,14 +143,10 @@ function CardsBook() {
               className=" hover:bg-gray-700 w-full max-w-sm border rounded-lg shadow bg-gray-800 border-gray-700 h-full"
             >
               <div>
-                {book.archives && book.archives.length > 0 ? (
-                  <img
-                    className="rounded-t-lg"
-                    src={book.archives[0].filename}
-                  />
-                ) : (
-                  <span>No hay imagen disponible</span>
-                )}
+                <img
+                  className="rounded-t-lg"
+                  src={book.linkImagen}
+                />
               </div>
               <div className="px-5 pb-5">
                 <div>
