@@ -38,7 +38,7 @@ export const handleSubmitUsers = async (
   }
 
   if (password === "") {
-    mostrarMensaje("Ingrese su password", MensajeErrUsuario);
+    mostrarMensaje("Ingrese su contraseña", MensajeErrUsuario);
     return false;
   }
 
