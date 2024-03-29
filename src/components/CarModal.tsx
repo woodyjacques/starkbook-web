@@ -55,7 +55,6 @@ function CarModal(props: any) {
                             )}
                         </div>
 
-
                     </div>
                 </div>
             </div>
