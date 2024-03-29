@@ -171,7 +171,7 @@ function CardsBook() {
                     <div
                       className="cursor-pointer text-white focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-green-800"
                     >
-                      Ver
+                      <a href="/starkbook-sesion">Ver</a>
                     </div>
                   )}
 
