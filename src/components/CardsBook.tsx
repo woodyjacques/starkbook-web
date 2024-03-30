@@ -142,7 +142,7 @@ function CardsBook() {
             >
               <div>
                 <img
-                  className="rounded-t-lg"
+                  className="rounded-t-lg h-80 w-full"
                   src={book.linkImagen}
                 />
               </div>
