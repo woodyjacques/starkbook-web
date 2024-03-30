@@ -35,24 +35,25 @@ function CarModal(props: any) {
                             </p>
                         </div>
 
+                        {restOfOffers.linkLeer && (
+                            <a href={restOfOffers.linkLeer} target="_blank" className="text-white cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
+                                Leer
+                            </a>
+                        )}
+
+                        {restOfOffers.linkEscuchar && (
+                            <a href={restOfOffers.linkEscuchar} target="_blank" className="text-white cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
+                                Escuchar
+                            </a>
+                        )}
+
                         <div className="flex justify-between">
                             {restOfOffers.linkCompra && (
                                 <a href={restOfOffers.linkCompra} target="_blank" className="text-white cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
-                                    Leer
-                                </a>
-                            )}
-
-                            {restOfOffers.linkLeer && (
-                                <a href={restOfOffers.linkLeer} target="_blank" className="text-white cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
-                                    Escuchar
-                                </a>
-                            )}
-
-                            {restOfOffers.linkEscuchar && (
-                                <a href={restOfOffers.linkEscuchar} target="_blank" className="text-white cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">
                                     Comprar
                                 </a>
                             )}
+
                         </div>
 
                     </div>
