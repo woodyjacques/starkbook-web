@@ -31,7 +31,7 @@ function CarModal(props: any) {
                         </p>
                         <div className="flex ">
                             <p className="flex-1 mr-2 mb-3 font-normal text-white">
-                                Precio {restOfOffers.price.toLocaleString()}
+                                Precio {restOfOffers.price.toLocaleString()} $
                             </p>
                         </div>
 
