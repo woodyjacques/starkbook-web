@@ -1,5 +1,5 @@
 import axios from "axios";
-const apiUrl = "https://stark-backend-pink.vercel.app";
+const apiUrl = "https://stark-backend-iota.vercel.app";
 
 export async function obtenerCategorias() {
     try {
